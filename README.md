@@ -111,5 +111,4 @@ DeepSeek Content Generator - WordPress Plugin
 
 ## Автор
 
-SMARTos
-t.me/smartos
+admin@keytracker.ru
