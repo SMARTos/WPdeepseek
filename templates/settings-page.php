@@ -7,10 +7,10 @@ if (!defined('ABSPATH')) {
 if (isset($_POST['submit'])) {
     check_admin_referer('deepseek_settings');
     
-    $deepseek_api_key = sanitize_text_field($_POST['deepseek_api_key']);
-    $deepseek_model = sanitize_text_field($_POST['deepseek_model']);
-    $max_tokens = intval($_POST['deepseek_max_tokens']);
-    $temperature = floatval($_POST['deepseek_temperature']);
+    $deepseek_api_key = isset($_POST['deepseek_api_key']) ? sanitize_text_field(wp_unslash($_POST['deepseek_api_key'])) : '';
+    $deepseek_model = isset($_POST['deepseek_model']) ? sanitize_text_field(wp_unslash($_POST['deepseek_model'])) : 'deepseek-chat';
+    $max_tokens = isset($_POST['deepseek_max_tokens']) ? intval(wp_unslash($_POST['deepseek_max_tokens'])) : 8000;
+    $temperature = isset($_POST['deepseek_temperature']) ? floatval(wp_unslash($_POST['deepseek_temperature'])) : 1.0;
     $remove_markdown = isset($_POST['deepseek_remove_markdown']) ? true : false;
     
     update_option('deepseek_api_key', $deepseek_api_key);

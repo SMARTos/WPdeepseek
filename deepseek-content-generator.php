@@ -131,7 +131,7 @@ class DeepSeekContentGenerator {
             wp_die('Недостаточно прав');
         }
         
-        $prompt = sanitize_textarea_field($_POST['prompt']);
+        $prompt = isset($_POST['prompt']) ? sanitize_textarea_field(wp_unslash($_POST['prompt'])) : '';
         $api_key = get_option('deepseek_api_key');
         $model = get_option('deepseek_model', 'deepseek-chat');
         $max_tokens = get_option('deepseek_max_tokens', 8000);
@@ -216,7 +216,7 @@ class DeepSeekContentGenerator {
             wp_die('Недостаточно прав');
         }
         
-        $content = sanitize_textarea_field($_POST['content']);
+        $content = isset($_POST['content']) ? sanitize_textarea_field(wp_unslash($_POST['content'])) : '';
         
         if (empty($content)) {
             wp_send_json_error('Контент не может быть пустым');
@@ -332,8 +332,8 @@ class DeepSeekContentGenerator {
             wp_die('Недостаточно прав');
         }
         
-        $title = sanitize_text_field($_POST['title']);
-        $prompt = sanitize_textarea_field($_POST['prompt']);
+        $title = isset($_POST['title']) ? sanitize_text_field(wp_unslash($_POST['title'])) : '';
+        $prompt = isset($_POST['prompt']) ? sanitize_textarea_field(wp_unslash($_POST['prompt'])) : '';
         
         if (empty($title) || empty($prompt)) {
             wp_send_json_error('Название и промт не могут быть пустыми');
@@ -369,7 +369,7 @@ class DeepSeekContentGenerator {
         $table_name = $wpdb->prefix . 'deepseek_prompts';
         
         $prompts = $wpdb->get_results(
-            "SELECT * FROM $table_name ORDER BY created_at DESC",
+            $wpdb->prepare("SELECT * FROM {$table_name} ORDER BY created_at DESC"),
             ARRAY_A
         );
         
@@ -383,7 +383,7 @@ class DeepSeekContentGenerator {
             wp_die('Недостаточно прав');
         }
         
-        $id = intval($_POST['id']);
+        $id = isset($_POST['id']) ? intval(wp_unslash($_POST['id'])) : 0;
         
         global $wpdb;
         $table_name = $wpdb->prefix . 'deepseek_prompts';

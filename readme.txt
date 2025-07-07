@@ -1,4 +1,5 @@
 === DeepSeek Content Generator ===
+A WordPress plugin for generating content using DeepSeek AI. Instantly create drafts with artificial intelligence.
 Contributors: smartosboy
 Tags: ai, content, generator, deepseek
 Requires at least: 5.0

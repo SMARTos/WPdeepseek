@@ -12,7 +12,7 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
 // Удаляем таблицу с промтами
 global $wpdb;
 $table_name = $wpdb->prefix . 'deepseek_prompts';
-$wpdb->query("DROP TABLE IF EXISTS $table_name");
+$wpdb->query($wpdb->prepare("DROP TABLE IF EXISTS {$table_name}"));
 
 // Удаляем опции плагина
 delete_option('deepseek_api_key');
