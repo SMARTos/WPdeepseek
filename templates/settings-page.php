@@ -128,6 +128,9 @@ $remove_markdown = get_option('deepseek_remove_markdown', true);
             <input type="submit" name="submit" id="submit" class="button button-primary" value="Сохранить настройки">
         </p>
     </form>
+    <div style="margin-top: 20px; font-size: 15px;">
+        По всем вопросам поддержки: <a href="mailto:admin@keytracker.ru">admin@keytracker.ru</a>
+    </div>
     
 
     
