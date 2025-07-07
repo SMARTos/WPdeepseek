@@ -3,6 +3,7 @@ DeepSeek Content Generator - WordPress Plugin
 
 Плагин WordPress для генерации контента с использованием DeepSeek API. 
 Создавайте качественный контент с помощью ИИ и автоматически сохраняйте его в черновики.
+Скачать https://github.com/SMARTos/WPdeepseek/blob/main/deepseek-content-generator.zip
 
 ВОЗМОЖНОСТИ
 -----------
